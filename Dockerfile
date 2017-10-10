@@ -18,6 +18,7 @@ RUN \
 RUN \
   apt-get update && \
   apt-get install -y apache2 && \
+  a2enmod rewrite && \
   mkdir -p /var/lock/apache2 /var/run/apache2  && \
   chown -R www-data /var/log/apache2
 
@@ -41,6 +42,7 @@ RUN \
   mkdir -p /var/log/supervisor
 
 COPY apache.supervisord.conf /etc/supervisor/conf.d/
+COPY directory.conf /etc/apache2/conf-enabled/directory.conf
 
 EXPOSE 80
 
