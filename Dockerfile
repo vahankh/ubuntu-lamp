@@ -47,6 +47,9 @@ COPY 001-webgrind.conf /etc/apache2/sites-enabled/001-webgrind.conf
 RUN \ 
   apt-get install -y supervisor && \
   mkdir -p /var/log/supervisor
+
+# Install ssh tools
+RUN apt-get install -y php-ssh2
   
 # Cleanup
 RUN \
