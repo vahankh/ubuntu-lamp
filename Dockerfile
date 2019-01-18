@@ -27,6 +27,7 @@ RUN apt-get install -y mysql-client
 RUN \
   apt-get install -y language-pack-en-base && \
   LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php && \
+  apt-get update && \
   apt-get purge -y php5-common && \
   apt-get install -y php7.0 php7.0-dev php7.0-fpm php7.0-mysql php7.0-json php7.0-common php7.0-xml libapache2-mod-php7.0 && \
   a2enmod php7.0
